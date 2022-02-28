@@ -1,4 +1,5 @@
 module.exports = {
+  mode: 'jit',
   darkMode: 'class',
   content: ['./src/**/*.{js,md,njk,svg}'],
   plugins: [
