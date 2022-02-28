@@ -1,13 +1,15 @@
-<div class="navigation-container w-full h-full fixed bg-rose-900">
+<div 
+  class="navigation-container w-full h-full fixed top-0 left-0 bg-rose-900" 
+  x-cloak
+  :class="{ 'block' : navOpen, 'hidden' : !navOpen }" 
+>
   {% if navigation %}
-    
     <nav class="main-navigation">
-      {{ for nav in navigation }}  
-        <a href="{{ nav.url }}" class="navigation-link">
-          {{ nav.title }}
+      {% for nav in navigation %}  
+        <a id="{{ nav.id }}" href="{{ nav.path }}" class="navigation-link">
+          {{ nav.label }}
         </a>
-      {{ endfor }}
-      {{ endfor }}
+      {% endfor %}
     </nav>
   {% endif %}
 </div>
