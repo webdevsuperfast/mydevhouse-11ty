@@ -31,9 +31,12 @@
     <script src="/assets/main.bundle.js" defer></script>
   </head>
   <body
-    class="{{ 'debug-screens' if env.devMode }} bg-fixed lazy bg-light bg-dark"
+    class="{{ 'debug-screens' if env.devMode }} bg-fixed lazy bg-dark"
+    x-data="{navOpen: false}"
   >
     {% include 'partials/header.njk' %}
+    
+    {% include 'partials/navigation.njk' %}
 
     <main class="site-content">
       {% block body %}
