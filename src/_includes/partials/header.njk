@@ -1,15 +1,12 @@
 <header
-  class="fixed z-50 w-full flex-none pt-4 text-sm font-medium leading-6 text-gray-100 transition-all lg:pt-16 xl:pt-24"
-  x-data="{ scrolled: false, navOpen: false }"
-  :class="{ 'bg-gray-900 drop-shadow bg-opacity-75 py-4 lg:pt-4 xl:pt-4' : scrolled }"
-  @scroll.window="scrolled = (window.pageYOffset > 20) ? true : false"
+  class="fixed w-full flex-none pt-4 text-sm font-medium leading-6 text-gray-100 transition-all lg:pt-8 xl:pt-16"
   @click.away="navOpen = false"
 >
   <nav class="nav container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-nowrap items-center">
       <a href="" class="flex-none logo">
-        <img src="./images/logo.svg" alt="Logo">
-        <span class="text-gray-100 font-barlow-condensed font-black text-uppercase block uppercase text-center text-2xl leading-none">{{ site.title }}</span>
+        <img class="w-22" src="./images/logo.svg" alt="{{ site.title }}">
+        <span class="text-gray-100 font-barlow-condensed font-black uppercase block text-center text-xl leading-none">{{ site.title }}</span>
       </a>
       <div class="flex grow origin-bottom transform justify-end transition-all duration-300 sm:mt-0 sm:ml-auto sm:w-auto lg:origin-right">
         <button
