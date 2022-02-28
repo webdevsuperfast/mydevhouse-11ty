@@ -1,0 +1,13 @@
+<div class="navigation-container w-full h-full fixed bg-rose-900">
+  {% if navigation %}
+    
+    <nav class="main-navigation">
+      {{ for nav in navigation }}  
+        <a href="{{ nav.url }}" class="navigation-link">
+          {{ nav.title }}
+        </a>
+      {{ endfor }}
+      {{ endfor }}
+    </nav>
+  {% endif %}
+</div>
