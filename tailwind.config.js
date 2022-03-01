@@ -1,11 +1,10 @@
 module.exports = {
-  mode: 'jit',
-  darkMode: 'class',
   content: [
     './src/**/*.{js,md,njk,svg}',
     './src/_includes/**/*.njk',
     './src/_includes/partials/*.njk',
   ],
+  darkMode: 'class',
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
