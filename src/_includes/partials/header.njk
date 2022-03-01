@@ -8,7 +8,7 @@
         href="/" class="flex-none logo transition-all"
         :class="{'hidden': navOpen}"
       >
-        <img class="w-22" src="./images/logo.svg" alt="{{ site.title }}">
+        <img class="w-22 h-11" src="{% imageUrl 'public/images/logo.svg'  %}" alt="{{ site.title }}">
         <span class="text-gray-100 font-barlow-condensed font-black uppercase block text-center text-xl leading-none">{{ site.title }}</span>
       </a>
       <div class="flex grow origin-bottom transform justify-end transition-all duration-300 sm:mt-0 sm:ml-auto sm:w-auto lg:origin-right">
