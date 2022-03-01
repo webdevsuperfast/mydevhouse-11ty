@@ -54,6 +54,7 @@
     "mixitup": "^3.3.1",
     "path": "^0.12.7",
     "postcss": "^8.4.5",
+    "swiper": "^8.0.6",
     "vanilla-lazyload": "^17.5.0"
   },
   "devDependencies": {
