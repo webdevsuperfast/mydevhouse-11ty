@@ -18,5 +18,7 @@ for (var i = 0; i < slider.length; i++) {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
+    draggable: false,
+    autoplay: true,
   })
 }
