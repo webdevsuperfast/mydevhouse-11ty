@@ -27,10 +27,20 @@
           </a>
         </div>
       </div>
-      <div class="md:col-span-2 lg:col-span-6 order-1 mb-16 md:mb-0 md:order-2">
-        <div class="featured-image">
-          <img src="./images/featured.png" alt="Featured Image">
-        </div>
+      <div class="md:col-span-2 lg:col-span-6 order-1 mb-16 md:mb-0 md:order-2 overflow-hidden">
+        {% if portfolio %}
+          <div class="swiper overflow-visible w-[85%]">
+            <div class="swiper-wrapper">
+              {% for item in portfolio %}
+                <div class="swiper-slide">
+                  <div class="portfolio-item shadow rounded-2xl overflow-hidden">
+                    <img class="object-cover lg:w-full h-[540px]" src="{% imageUrl item.featuredImage.node.thumbnail %}" alt="{{ item.title }}" class="w-full">
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
       </div>
     </div>
   </section>
