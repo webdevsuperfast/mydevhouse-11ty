@@ -6,3 +6,19 @@ input:checked ~ .block {
 input:checked ~ .dot {
   @apply translate-x-full bg-gray-100;
 }
+
+.swiper-slide {
+  @apply z-10 transition-transform duration-300;
+
+  &.swiper-slide-prev {
+    @apply scale-75;
+    @apply translate-x-[80%];
+  }
+  &.swiper-slide-next {
+    @apply scale-75;
+    @apply -translate-x-[80%];
+  }
+  &.swiper-slide-active {
+    @apply z-20;
+  }
+}
