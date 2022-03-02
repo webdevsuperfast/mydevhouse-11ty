@@ -18,7 +18,7 @@ const getPortfolio = async () => {
             node {
               id
               altText
-              thumbnail: sourceUrl(size: PORTFOLIO_THUMBNAIL)
+              thumbnail: sourceUrl(size: SLIDER_THUMBNAIL)
               featuredImage: sourceUrl
             }
           }
