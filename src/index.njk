@@ -9,40 +9,10 @@
         <div class="content text-gray-300 mb-4 lg:mb-8 2xl:mb-16">
           <p>We are a web development company located in Northern Philippines that helps SMEs grow by building clean and responsive websites, defining a strong brand identity and thoughtful brand strategies.</p>
         </div>
-        <div class="button-container sm:flex sm:space-x-8 text-gray-100 text-center leading-none">
-          <a
-            href="/about-us/"
-            class="leading-none block rounded-xl rounded-tl-none rounded-br-none border-2 border-rose-900 bg-rose-900 px-8 py-4 text-xl uppercase transition-all hover:bg-transparent hover:text-rose-900 2xl:text-2xl"
-            target=""
-          >
-            Know More
-          </a>
-
-          <a
-            href="/portfolio/"
-            class="leading-none block rounded-xl rounded-tl-none rounded-br-none border-2 border-rose-900 bg-transparent bg-rose-900 px-8 py-4 text-xl uppercase text-rose-900 transition-all hover:bg-rose-900 hover:text-gray-100 2xl:text-2xl"
-            target=""
-          >
-            Our Works
-          </a>
-        </div>
+        {% include "partials/cta-button.njk" %}
       </div>
       <div class="md:col-span-2 lg:col-span-6 order-1 mb-16 md:mb-0 md:order-2 overflow-hidden">
-        {% if portfolio %}
-          <div class="swiper overflow-visible w-[85%]">
-            <div class="swiper-wrapper">
-              {% for item in portfolio %}
-                <div class="swiper-slide">
-                  <div class="portfolio-item shadow rounded-2xl rounded-tl-none rounded-br-none overflow-hidden">
-                    <img class="object-cover w-full h-[240px] sm:h-[320px] md:h-[360px] 2xl:h-[540px]" src="{% imageUrl item.featuredImage.node.thumbnail %}" alt="{{ item.title }}" class="w-full">
-                  </div>
-                </div>
-              {% endfor %}
-            </div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-          </div>
-        {% endif %}
+        {% include "partials/slider.njk" %}
       </div>
     </div>
   </section>
