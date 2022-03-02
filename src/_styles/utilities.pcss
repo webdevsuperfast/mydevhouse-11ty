@@ -8,7 +8,7 @@ input:checked ~ .dot {
 }
 
 .swiper-slide {
-  @apply z-10 transition-transform duration-300;
+  @apply z-10 opacity-75 grayscale transition-transform duration-300;
 
   &.swiper-slide-prev {
     @apply scale-75;
@@ -19,19 +19,18 @@ input:checked ~ .dot {
     @apply -translate-x-[80%];
   }
   &.swiper-slide-active {
-    @apply z-20;
+    @apply z-20 opacity-100 grayscale-0;
   }
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-  @apply invisible text-rose-900 transition-all duration-300;
+  @apply text-rose-900 opacity-0 transition-all duration-300;
   &:hover {
-    @apply visible opacity-100;
+    @apply opacity-100;
   }
 }
 
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-  @apply visible cursor-auto;
+.cta-button {
+  @apply block rounded-xl rounded-tl-none rounded-br-none border-2 border-rose-900 px-12 py-4 text-xl uppercase leading-none transition-all 2xl:text-2xl;
 }
