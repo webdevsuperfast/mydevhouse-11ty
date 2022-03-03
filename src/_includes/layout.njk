@@ -6,7 +6,15 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>{{ site.title }}</title>
+    {% if page.url == '/' %}
+      <title>{{ site.title }} - {{ site.description }}</title>
+    {% else %}
+      <title>
+        {% block title %}
+          {% if title %}{{ title }} - {% endif %}{{ site.title }}
+        {% endblock %}
+      </title>
+    {% endif %}
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link
@@ -31,7 +39,7 @@
     <script src="/assets/main.bundle.js" defer></script>
   </head>
   <body
-    class="{{ 'debug-screens' if env.devMode }} bg-fixed lazy bg-dark"
+    class="{{ 'debug-screens' if env.devMode }}"
     x-data="{navOpen: false}"
   >
     {% include 'partials/header.njk' %}
@@ -43,7 +51,10 @@
         {{ content | safe }}
       {% endblock %}
     </main>
-
-    {% include 'partials/footer.njk' %}
+    {% if page.url == '/' %}
+      {% include 'partials/footer.njk' %}
+    {% else %}
+      {% include 'partials/footer-page.njk' %}
+    {% endif %}
   </body>
 </html>
