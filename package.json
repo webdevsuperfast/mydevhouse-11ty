@@ -51,6 +51,7 @@
     "flat-cache": "^3.0.4",
     "glightbox": "^3.1.0",
     "https": "^1.0.0",
+    "locomotive-scroll": "^4.1.4",
     "mixitup": "^3.3.1",
     "path": "^0.12.7",
     "postcss": "^8.4.5",
