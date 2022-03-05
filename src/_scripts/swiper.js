@@ -21,5 +21,11 @@ for (var i = 0; i < slider.length; i++) {
     autoplay: {
       delay: 2000,
     },
+    preloadImages: false,
+    lazy: true,
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true,
+    },
   })
 }
