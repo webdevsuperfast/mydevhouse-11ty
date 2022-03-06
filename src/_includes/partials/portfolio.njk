@@ -1,3 +1,14 @@
-<section class="portfolio">
-  <div class="container"></div>
+<section class="portfolio py-20 text-gray-900">
+  <div class="container grid grid-cols-none md:grid-cols-3">
+    <div class="portfolio-navigation">
+      {% if services %}
+        <h2 class="portfolio-filter-heading">Filter by:</h2>
+        <nav class="navigation">
+          {% for service in services %}
+            <a class="block " href="#{{ service.slug }}" class="portfolio-navigation__item {{ service.slug }}">{{ service.title }}</a>
+          {% endfor %}
+        </nav>
+      {% endif %}
+    </div>
+  </div>
 </section>
