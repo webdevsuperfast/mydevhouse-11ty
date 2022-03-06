@@ -12,7 +12,6 @@ for (var i = 0; i < slider.length; i++) {
     centeredSlides: true,
     spaceBetween: 0,
     loop: true,
-    loopedSlides: 3,
     watchSlidesVisibility: true,
     navigation: {
       nextEl: '.swiper-button-next',
@@ -21,8 +20,6 @@ for (var i = 0; i < slider.length; i++) {
     autoplay: {
       delay: 2000,
     },
-    preloadImages: false,
-    lazy: true,
     effect: 'fade',
     fadeEffect: {
       crossFade: true,
