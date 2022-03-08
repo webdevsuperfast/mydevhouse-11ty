@@ -45,13 +45,13 @@
   </head>
   <body
     class="{{ 'debug-screens' if env.devMode }}"
-    x-data="{navOpen: false}"
+    x-data="{ scrolled: false, navOpen: false }"
   >
     {% include 'partials/header.njk' %}
 
     {% include 'partials/navigation.njk' %}
 
-    <main class="site-content py-8 lg:py-0">
+    <main class="site-content py-0">
       {% block body %}
         {{ content | safe }}
       {% endblock %}
