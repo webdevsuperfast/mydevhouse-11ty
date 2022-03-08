@@ -2,16 +2,20 @@
   class="site-header"
   @click.away="navOpen = false"
 >
-  <nav class="fixed nav w-full flex-none pt-4 text-sm font-medium leading-6 text-gray-100 transition-all lg:pt-8 xl:pt-16 z-20">
+  <nav 
+  class="fixed z-50 w-full flex-none pt-4 text-sm font-medium leading-6text-gray-100 transition-all lg:pt-16 xl:pt-24"
+  :class="{ 'bg-gray-900 drop-shadow bg-opacity-75 py-4 lg:pt-4 xl:pt-4' : scrolled }"
+  @scroll.window="scrolled = (window.pageYOffset > 20) ? true : false">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-nowrap items-center">
       <a 
+        class="text-center"
           href="/" class="flex-none logo transition-all"
           :class="{'hidden': navOpen}"
         >
-        <svg xmlns="http://www.w3.org/2000/svg" width="110" height="50">
-          <path class="fill-gray-100" d="M41.068 1.635A12.2 12.2 0 0 0 31.81.416 12.2 12.2 0 0 0 24.4 6.1L0 48.365a12.2 12.2 0 0 0 9.258 1.219 12.2 12.2 0 0 0 7.408-5.684Zm20.246 0A12.2 12.2 0 0 0 52.056.416 12.2 12.2 0 0 0 44.648 6.1L20.246 48.365a12.2 12.2 0 0 0 9.254 1.219 12.2 12.2 0 0 0 7.412-5.684ZM75.516 0a12.188 12.188 0 0 1 3.214.415A12.2 12.2 0 0 1 86.138 6.1l24.4 42.265a12.2 12.2 0 0 1-9.257 1.219 12.2 12.2 0 0 1-7.407-5.684L75.516 12.1 57.158 43.9a12.2 12.2 0 0 1-7.408 5.684 12.2 12.2 0 0 1-9.258-1.219L64.894 6.1A12.2 12.2 0 0 1 72.3.416 12.188 12.188 0 0 1 75.516 0Z" fill="none" fill-rule="evenodd"/>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 50" preserveAspectRatio="xMinYMin meet" class="w-20 lg:w-24">
+          <path fill="none" d="M41.068 1.635A12.2 12.2 0 0 0 31.81.416 12.2 12.2 0 0 0 24.4 6.1L0 48.365a12.2 12.2 0 0 0 9.258 1.219 12.2 12.2 0 0 0 7.408-5.684Zm20.246 0A12.2 12.2 0 0 0 52.056.416 12.2 12.2 0 0 0 44.648 6.1L20.246 48.365a12.2 12.2 0 0 0 9.254 1.219 12.2 12.2 0 0 0 7.412-5.684ZM75.516 0a12.188 12.188 0 0 1 3.214.415A12.2 12.2 0 0 1 86.138 6.1l24.4 42.265a12.2 12.2 0 0 1-9.257 1.219 12.2 12.2 0 0 1-7.407-5.684L75.516 12.1 57.158 43.9a12.2 12.2 0 0 1-7.408 5.684 12.2 12.2 0 0 1-9.258-1.219L64.894 6.1A12.2 12.2 0 0 1 72.3.416 12.188 12.188 0 0 1 75.516 0Z" class="fill-gray-100"/>
         </svg>
-        <span class="text-gray-100 font-barlow-condensed font-black uppercase block text-center text-2xl leading-none">{{ site.title }}</span></a>
+        <span class="text-gray-100 font-barlow-condensed font-black uppercase text-center text-xl leading-none hidden lg:block">{{ site.title }}</span></a>
       <div class="flex grow origin-bottom transform justify-end transition-all duration-300 sm:mt-0 sm:ml-auto sm:w-auto lg:origin-right">
         <button
                 x-on:click="navOpen = ! navOpen"
