@@ -2,12 +2,6 @@
 {% extends "layout.njk" %}
 
 {% block body %}
-  <div class="w-screen h-screen whitespace-normal text-gray-900" data-scroll-section>
-    <h1 data-scroll>Hey</h1>
-    <p data-scroll>Sed eleifend lobortis neque, eu ultricies purus pretium nec. Phasellus aliquet sed est sed ultricies. Nullam volutpat neque efficitur tortor blandit, nec rhoncus lectus vulputate. Nunc accumsan est id lacinia malesuada. Maecenas ligula quam, vestibulum ac nulla sit amet, convallis dapibus lectus. Donec vehicula, metus eget feugiat tincidunt, arcu metus elementum sapien, sit amet convallis nisi massa tincidunt lorem. Integer et ligula tempus, faucibus justo at, porta tortor. Sed eros eros, iaculis id aliquam eu, finibus vitae ante. Proin semper ante nisl, ut tincidunt ipsum condimentum id. Mauris commodo egestas est at suscipit. Etiam sagittis ultricies est, eget ullamcorper quam iaculis a. </p>
-  </div>
-  <div class="w-screen h-screen text-rose-900" data-scroll-section>
-    <h2 data-scroll data-scroll-speed="1">What's up?</h2>
-    <p data-scroll data-scroll-speed="2">Sed eleifend lobortis neque, eu ultricies purus pretium nec. Phasellus aliquet sed est sed ultricies. Nullam volutpat neque efficitur tortor blandit, nec rhoncus lectus vulputate. Nunc accumsan est id lacinia malesuada. Maecenas ligula quam, vestibulum ac nulla sit amet, convallis dapibus lectus. Donec vehicula, metus eget feugiat tincidunt, arcu metus elementum sapien, sit amet convallis nisi massa tincidunt lorem. Integer et ligula tempus, faucibus justo at, porta tortor. Sed eros eros, iaculis id aliquam eu, finibus vitae ante. Proin semper ante nisl, ut tincidunt ipsum condimentum id. Mauris commodo egestas est at suscipit. Etiam sagittis ultricies est, eget ullamcorper quam iaculis a. </p>
-  </div>
+  {% include 'partials/about.njk' %}
+  {% include 'partials/portfolio.njk' %}
 {% endblock %}
