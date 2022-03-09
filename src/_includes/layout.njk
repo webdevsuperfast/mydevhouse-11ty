@@ -44,7 +44,7 @@
 />
   </head>
   <body
-    class="bg-gray-100"
+    class="bg-gray-100 whitespace-normal"
     :class="{{ 'debug-screens' if env.devMode }}"
     x-data="{ scrolled: false, navOpen: false }"
   >
@@ -52,7 +52,7 @@
 
     {% include 'partials/navigation.njk' %}
 
-    <main class="site-content py-0">
+    <main class="site-content py-0" data-scroll-container>
       {% block body %}
         {{ content | safe }}
       {% endblock %}
