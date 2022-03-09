@@ -44,7 +44,8 @@
 />
   </head>
   <body
-    class="{{ 'debug-screens' if env.devMode }}"
+    class="bg-gray-100"
+    :class="{{ 'debug-screens' if env.devMode }}"
     x-data="{ scrolled: false, navOpen: false }"
   >
     {% include 'partials/header.njk' %}
