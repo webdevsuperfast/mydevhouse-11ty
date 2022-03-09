@@ -52,7 +52,7 @@
 
     {% include 'partials/navigation.njk' %}
 
-    <main class="site-content py-0" data-scroll-container>
+    <main class="site-content py-0 bg-fixed lazy bg-dark" data-scroll-container>
       {% block body %}
         {{ content | safe }}
       {% endblock %}
