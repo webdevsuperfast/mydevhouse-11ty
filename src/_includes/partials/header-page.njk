@@ -1,5 +1,5 @@
-<header class="fixed flex justify-center h-screen site-header bg-dark row-span-full w-96 items-between">
-  <div class="flex items-center px-4 mx-auto sm:px-6 lg:px-8 flex-nowrap">
+<header class="fixed flex flex-col items-center justify-center h-screen site-header bg-dark row-span-full w-96 items-between">
+  <div class="px-20 py-20 site-title">
     <a 
       class="text-center"
         href="/" class="flex-none transition-all logo"
@@ -9,5 +9,15 @@
       </svg>
       <span class="hidden text-xl font-black leading-none text-center text-gray-100 uppercase font-barlow-condensed lg:block lg:text-4xl">{{ site.title }}</span></a>
   </div>
+  <nav class="text-center header-navigation grow">
+    {% if navigation %}
+      <ul class="list-none navigation">
+        {% for item in navigation %}
+          <li class="block navigation-item">
+            <a href="{{ item.path }}" class="block px-5 py-5 text-4xl font-light uppercase transition-all navigation-link">{{ item.label }}</a>
+          {% endfor %}
+      </ul>
+    {% endif %}
+  </nav>
 </header>
 <!-- End Header -->
