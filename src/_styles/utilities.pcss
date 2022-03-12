@@ -11,12 +11,10 @@ input:checked ~ .dot {
   @apply z-10 opacity-75 grayscale transition-transform duration-300;
 
   &.swiper-slide-prev {
-    @apply scale-75;
-    @apply translate-x-[80%];
+    @apply translate-x-[80%] scale-75;
   }
   &.swiper-slide-next {
-    @apply scale-75;
-    @apply -translate-x-[80%];
+    @apply -translate-x-[80%] scale-75;
   }
   &.swiper-slide-active {
     @apply z-20 opacity-100 grayscale-0;
