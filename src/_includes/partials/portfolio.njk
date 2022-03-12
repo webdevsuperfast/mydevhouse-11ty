@@ -5,7 +5,7 @@
         <h2 class="portfolio-filter-heading">Filter by:</h2>
         <nav class="navigation">
           {% for service in services %}
-            <a class="block " href="#{{ service.slug }}" class="portfolio-navigation__item {{ service.slug }}">{{ service.title }}</a>
+            <a class="block" href="#{{ service.slug }}" class="portfolio-navigation__item {{ service.slug }}">{{ service.title }}</a>
           {% endfor %}
         </nav>
       {% endif %}
