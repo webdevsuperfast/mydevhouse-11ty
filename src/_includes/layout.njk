@@ -1,66 +1,16 @@
-<!DOCTYPE html>
-<html
-  lang="en"
-  class="scroll-smooth font-barlow text-gray-100 antialiased"
->
-  <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    {% if page.url == '/' %}
-      <title>{{ site.title }} - {{ site.description }}</title>
-    {% else %}
-      <title>
-        {% block title %}
-          {% if title %}{{ title }} - {% endif %}{{ site.title }}
-        {% endblock %}
-      </title>
-    {% endif %}
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Barlow+Condensed:wght@700&display=swap"
-      rel="preload"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-/>
-    <link
-      rel="preload"
-      href="/assets/main.bundle.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-/>
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Barlow+Condensed:wght@700&display=swap"
-        rel="stylesheet"
-/>
-      <link rel="stylesheet" href="/assets/main.bundle.css"/>
-    </noscript>
-    <script src="/assets/main.bundle.js" defer></script>
-    <link
-      rel="shortcut icon"
-      href="/favicon.ico"
-      type="image/x-icon"
-/>
-  </head>
-  <body
-    class="bg-gray-100"
-    :class="{{ 'debug-screens' if env.devMode }}"
-    x-data="{ scrolled: false, navOpen: false }"
-  >
+{% include 'partials/head.njk' %}
+  {% if page.url == '/' %}
     {% include 'partials/header.njk' %}
-
     {% include 'partials/navigation.njk' %}
-
-    <main class="site-content py-0">
-      {% block body %}
-        {{ content | safe }}
-      {% endblock %}
-    </main>
-    {% if page.url == '/' %}
-      {% include 'partials/footer.njk' %}
-    {% else %}
-      {% include 'partials/footer-page.njk' %}
-    {% endif %}
-  </body>
-</html>
+  {% else %}
+    {% include 'partials/header-page.njk' %}
+  {% endif %}
+  
+  <main class="site-content py-0">
+    {% block body %}
+      {{ content | safe }}
+    {% endblock %}
+  </main>
+  
+  {% include 'partials/footer.njk' %}
+{% include 'partials/foot.njk' %}
