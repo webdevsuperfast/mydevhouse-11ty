@@ -48,8 +48,17 @@ const getPortfolio = async () => {
     }`,
   })
 
+  for (const item of data.portfolioItems.nodes) {
+    categories = []
+    for (i = 0; i < item.terms.nodes.length; i++) {
+      categories[i] = item.terms.nodes[i].slug
+    }
+
+    item.categories = categories.join(' ')
+  }
+
   return {
-    portfolioitems: data.portfolioItems.nodes,
+    portfolioItems: data.portfolioItems.nodes,
     featuredPortfolio: data.featuredPortfolio.nodes,
   }
 }
