@@ -2,7 +2,7 @@
   <div class="swiper overflow-visible w-[85%] py-20">
     <div class="swiper-wrapper">
       {% for item in portfolio.featuredPortfolio %}
-        <div class="swiper-slide transform">
+        <div class="transform swiper-slide">
           <img class="lazy object-cover w-full h-[240px] sm:h-[320px] md:h-[360px] 2xl:h-[540px] rounded-2xl rounded-tl-none rounded-br-none shadow-lg shadow-gray-900" src="{% imageUrl item.featuredImage.node.thumbnail %}" alt="{{ item.title }}">
         </div>
       {% endfor %}

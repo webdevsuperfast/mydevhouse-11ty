@@ -3,36 +3,36 @@
   @click.away="navOpen = false"
 >
   <nav 
-  class="fixed z-50 w-full flex-none pt-4 text-sm font-medium leading-6text-gray-100 transition-all lg:pt-16 xl:pt-24"
+  class="fixed z-50 flex-none w-full pt-4 text-sm font-medium transition-all leading-6text-gray-100 lg:pt-16 xl:pt-24"
   :class="{ 'bg-gray-900 drop-shadow bg-opacity-75 py-4 lg:pt-4 xl:pt-4' : scrolled }"
   @scroll.window="scrolled = (window.pageYOffset > 20) ? true : false">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-nowrap items-center">
+    <div class="container flex items-center px-4 mx-auto sm:px-6 lg:px-8 flex-nowrap">
       <a 
         class="text-center"
-          href="/" class="flex-none logo transition-all"
+          href="/" class="flex-none transition-all logo"
           :class="{'hidden': navOpen}"
         >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 50" preserveAspectRatio="xMinYMin meet" class="w-20 lg:w-24">
           <path fill="none" d="M41.068 1.635A12.2 12.2 0 0 0 31.81.416 12.2 12.2 0 0 0 24.4 6.1L0 48.365a12.2 12.2 0 0 0 9.258 1.219 12.2 12.2 0 0 0 7.408-5.684Zm20.246 0A12.2 12.2 0 0 0 52.056.416 12.2 12.2 0 0 0 44.648 6.1L20.246 48.365a12.2 12.2 0 0 0 9.254 1.219 12.2 12.2 0 0 0 7.412-5.684ZM75.516 0a12.188 12.188 0 0 1 3.214.415A12.2 12.2 0 0 1 86.138 6.1l24.4 42.265a12.2 12.2 0 0 1-9.257 1.219 12.2 12.2 0 0 1-7.407-5.684L75.516 12.1 57.158 43.9a12.2 12.2 0 0 1-7.408 5.684 12.2 12.2 0 0 1-9.258-1.219L64.894 6.1A12.2 12.2 0 0 1 72.3.416 12.188 12.188 0 0 1 75.516 0Z" class="fill-gray-100"/>
         </svg>
-        <span class="text-gray-100 font-barlow-condensed font-black uppercase text-center text-xl leading-none hidden lg:block">{{ site.title }}</span></a>
-      <div class="flex grow origin-bottom transform justify-end transition-all duration-300 sm:mt-0 sm:ml-auto sm:w-auto lg:origin-right">
+        <span class="hidden text-xl font-black leading-none text-center text-gray-100 uppercase font-barlow-condensed lg:block">{{ site.title }}</span></a>
+      <div class="flex justify-end transition-all duration-300 origin-bottom transform grow sm:mt-0 sm:ml-auto sm:w-auto lg:origin-right">
         <button
                 x-on:click="navOpen = ! navOpen"
-                class="group ml-4 flex items-center space-x-4 uppercase focus:outline-none relative z-50"
+                class="relative z-50 flex items-center ml-4 space-x-4 uppercase group focus:outline-none"
               >
-          <div class="relative flex h-10 w-10 items-center justify-center z-20">
+          <div class="relative z-20 flex items-center justify-center w-10 h-10">
             <span
                     x-bind:class="navOpen ? 'translate-y-0 rotate-45' : '-translate-y-3'"
-                    class="absolute h-1 w-full transform rounded bg-current transition group-hover:bg-rose-900"
+                    class="absolute w-full h-1 transition transform bg-current rounded group-hover:bg-rose-900"
                   ></span>
             <span
                     x-bind:class="navOpen ? 'opacity-0 translate-x-3 w-10' : 'opacity-100'"
-                    class="absolute right-0 h-1 w-4/5 transform rounded bg-current transition group-hover:bg-rose-900"
+                    class="absolute right-0 w-4/5 h-1 transition transform bg-current rounded group-hover:bg-rose-900"
                   ></span>
             <span
                     x-bind:class="navOpen ? 'translate-y-0 -rotate-45 w-10' : 'translate-y-3 w-3/5'"
-                    class="absolute right-0 h-1 transform rounded bg-current transition group-hover:bg-rose-900"
+                    class="absolute right-0 h-1 transition transform bg-current rounded group-hover:bg-rose-900"
                   ></span>
           </div>
         </button>
