@@ -1,6 +1,6 @@
 import './alpine'
-// import './glightbox'
+import './glightbox'
 import './lazyload'
-// import './mixitup'
+import './mixitup'
 // import './app'
 import './swiper'
