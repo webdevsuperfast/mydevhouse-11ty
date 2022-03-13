@@ -1,11 +1,22 @@
 <section class="text-gray-900 portfolio py-28 px-28">
   <div class="container">
-    <div class="title-wrapper font-barlow-condensed">
-      <h1 class="text-4xl font-light uppercase section-title text-rose-900">{{ title }}</h1>
+    <div class="mb-16 title-wrapper font-barlow-condensed">
+      <h1 class="text-5xl font-light uppercase section-title text-rose-900">{{ title }}</h1>
       <span class="block w-10 h-1 rounded bg-rose-900"></span>
     </div>
-    <div class="portfolio">
-      
-    </div>
+    {% if portfolio.portfolioItems %}
+      <div class="grid grid-cols-none gap-10 portfolio-items collections sm:grid-cols-2 md:grid-cols-3">
+        {% for item in portfolio.portfolioItems %}
+          <figure class="mix portfolio w-100 {{ item.category }} group drop-shadow-xl shadow-gray-400">
+            <a data-glightbox="type: image" href="{% imageUrl item.featuredImage.node.featuredImage %}" class="relative block overflow-hidden rounded-br-none glightbox rounded-xl">
+              <img width="445" height="330" data-src="{% imageUrl item.featuredImage.node.thumbnail %}" alt="{{ item.title }}" class="portfolio-image lazy mb-0 h-[250px] w-full object-cover transition-transform group-hover:-translate-y-10"/>
+              <figcaption class="absolute bottom-0 left-0 w-full px-5 py-4 transition-transform translate-y-full portfolio-info bg-rose-900 group-hover:translate-y-0">
+                <h3 class="mb-0 text-white">{{ item.title }}</h3>
+              </figcaption>
+            </a>
+          </figure>
+        {% endfor %}
+      </div>
+    {% endif %}
   </div>
 </section>
