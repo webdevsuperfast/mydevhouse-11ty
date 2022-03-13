@@ -1,5 +1,3 @@
-import GLightbox from 'glightbox';
+import GLightbox from 'glightbox'
 
-const lightbox = GLightbox({
-  
-});
+const lightbox = GLightbox({})
