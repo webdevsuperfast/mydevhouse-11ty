@@ -1,8 +1,9 @@
 {% include 'partials/head.njk' %}
-  {% include 'partials/header-page.njk' %}
-  <main class="pl-96">
-    {% block body %}
-      {{ content | safe }}
-    {% endblock %}
-  </main>
+{% include 'partials/header-page.njk' %}
+<main class="pl-96">
+  {% block body %}
+    {{ content | safe }}
+  {% endblock %}
+</main>
+{% include 'partials/footer.njk' %}
 {% include 'partials/foot.njk' %}
