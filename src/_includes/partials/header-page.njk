@@ -1,22 +1,113 @@
-<header class="fixed flex flex-col items-center justify-center h-screen site-header bg-dark row-span-full w-96 items-between">
-  <div class="px-20 py-20 site-title">
-    <a 
-      class="text-center"
-        href="/" class="flex-none transition-all logo"
-      >
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 50" preserveAspectRatio="xMinYMin meet" class="w-20 lg:w-44">
+<header class="fixed flex flex-col items-center justify-center w-32 h-screen site-header bg-dark">
+  <div class="flex items-center self-stretch justify-center py-10 title-area">
+    <a class="text-center" href="/" class="relative self-stretch transition-all logo group">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 50" preserveAspectRatio="xMinYMin meet" class="w-20 blocks">
         <path fill="none" d="M41.068 1.635A12.2 12.2 0 0 0 31.81.416 12.2 12.2 0 0 0 24.4 6.1L0 48.365a12.2 12.2 0 0 0 9.258 1.219 12.2 12.2 0 0 0 7.408-5.684Zm20.246 0A12.2 12.2 0 0 0 52.056.416 12.2 12.2 0 0 0 44.648 6.1L20.246 48.365a12.2 12.2 0 0 0 9.254 1.219 12.2 12.2 0 0 0 7.412-5.684ZM75.516 0a12.188 12.188 0 0 1 3.214.415A12.2 12.2 0 0 1 86.138 6.1l24.4 42.265a12.2 12.2 0 0 1-9.257 1.219 12.2 12.2 0 0 1-7.407-5.684L75.516 12.1 57.158 43.9a12.2 12.2 0 0 1-7.408 5.684 12.2 12.2 0 0 1-9.258-1.219L64.894 6.1A12.2 12.2 0 0 1 72.3.416 12.188 12.188 0 0 1 75.516 0Z" class="fill-gray-100"/>
       </svg>
-      <span class="hidden text-xl font-black leading-none text-center text-gray-100 uppercase font-barlow-condensed lg:block lg:text-4xl">{{ site.title }}</span></a>
+      <span class="absolute hidden text-xl font-black leading-none text-center text-gray-100 uppercase transition-transform">{{ site.title }}</span></a>
   </div>
-  <nav class="w-full text-center header-navigation grow">
+  <nav class="self-stretch header-navigation grow">
     {% if navigation %}
       <ul class="list-none navigation">
         {% for item in navigation %}
           <li class="block navigation-item">
-            <a href="{{ item.path }}" class="block px-5 py-5 text-4xl font-light uppercase transition-transform transform font-barlow-condensed navigation-link hover:bg-rose-900 group">
-              <span class="block transition-transform item-label group-hover:translate-x-16">{{ item.label }}</span></a>
-          {% endfor %}
+            <a href="{{ item.path }}" class="flex flex-col items-center justify-center py-5 mx-auto font-light uppercase transition-transform transform font-barlow-condensed navigation-link group hover:bg-rose-900">
+              <span class="block navigation-logo">
+                {% if item.path == '/about-us/' %}
+                  <svg class="w-20 group-hover:drop-shadow-lg shadow-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 50">
+                    <g fill="#fff">
+                      <path d="M59.494 47.5H.506a19.434 19.434 0 0 1 5.705-13.288A19.435 19.435 0 0 1 20 28.5h4.378l-1.616-.933a14.584 14.584 0 0 1-5.259-5.21A14.484 14.484 0 0 1 15.5 15c0-3.873 1.509-7.514 4.247-10.253A14.404 14.404 0 0 1 30 .5c3.873 0 7.514 1.508 10.253 4.247A14.406 14.406 0 0 1 44.5 15a14.49 14.49 0 0 1-2.003 7.358 14.587 14.587 0 0 1-5.26 5.209l-1.616.933H40a19.436 19.436 0 0 1 13.789 5.711A19.435 19.435 0 0 1 59.494 47.5Z"/>
+                      <path fill="#1a1a1a" d="M58.975 47a18.937 18.937 0 0 0-5.54-12.435A18.94 18.94 0 0 0 40 29h-6.245l3.233-1.866a14.085 14.085 0 0 0 5.078-5.03A13.983 13.983 0 0 0 44 15a13.91 13.91 0 0 0-4.1-9.9A13.908 13.908 0 0 0 30 1a13.91 13.91 0 0 0-9.9 4.1A13.91 13.91 0 0 0 16 15a13.985 13.985 0 0 0 7.012 12.134L26.244 29H20a18.937 18.937 0 0 0-13.435 5.565A18.938 18.938 0 0 0 1.025 47h57.95M60 48H0c0-11.046 8.954-20 20-20h2.512C18.022 25.408 15 20.557 15 15c0-8.284 6.715-15 15-15 8.284 0 15 6.716 15 15 0 5.557-3.022 10.408-7.512 13H40c11.045 0 20 8.954 20 20Z"/>
+                    </g>
+                    <g fill="#7c002b">
+                      <path d="M79.495 49.5h-58.99a22.196 22.196 0 0 1 1.312-7.115c.843-2.324 2.049-4.411 3.584-6.202 3.141-3.665 7.311-5.683 11.742-5.683h7.235l-1.616-.933a14.584 14.584 0 0 1-5.259-5.21A14.484 14.484 0 0 1 35.5 17c0-3.873 1.509-7.514 4.247-10.253A14.404 14.404 0 0 1 50 2.5c3.873 0 7.514 1.508 10.253 4.247A14.406 14.406 0 0 1 64.5 17a14.49 14.49 0 0 1-2.003 7.358 14.587 14.587 0 0 1-5.26 5.209l-1.616.933h7.237c4.43 0 8.6 2.018 11.742 5.683 1.535 1.79 2.74 3.878 3.583 6.202a22.196 22.196 0 0 1 1.312 7.115Z"/>
+                      <path fill="#1a1a1a" d="M78.979 49a21.632 21.632 0 0 0-1.266-6.444c-.822-2.268-1.997-4.303-3.493-6.048C71.175 32.956 67.14 31 62.857 31h-9.102l3.233-1.866a14.085 14.085 0 0 0 5.078-5.03A13.983 13.983 0 0 0 64 17a13.91 13.91 0 0 0-4.1-9.9A13.908 13.908 0 0 0 50 3a13.91 13.91 0 0 0-9.9 4.1A13.91 13.91 0 0 0 36 17a13.985 13.985 0 0 0 7.012 12.134L46.244 31h-9.1c-4.283 0-8.319 1.956-11.364 5.508-1.495 1.745-2.67 3.78-3.493 6.048A21.629 21.629 0 0 0 21.022 49h57.957M80 50H20c0-11.046 7.675-20 17.143-20h5.369C38.022 27.408 35 22.557 35 17c0-8.284 6.715-15 15-15 8.284 0 15 6.716 15 15 0 5.557-3.022 10.408-7.512 13h5.37C72.324 30 80 38.954 80 50Z"/>
+                    </g>
+                  </svg>
+                {% elseif item.path == '/portfolio/' %}
+                  <svg class="w-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 50">
+                    <g transform="translate(-30 -284)">
+                      <g fill="#470012" stroke="#191919">
+                        <path stroke="none" d="M30 284h60v40H30z"/>
+                        <path fill="none" d="M30.5 284.5h59v39h-59z"/>
+                      </g>
+                      <path fill="#7d002c" d="m30.583 298.144 24.859-11.271 13.82 6.262 20.155-6.262V316.1H30.583Z"/>
+                      <path fill="#fff" d="m30.583 305.097 24.859-15.128 13.82 8.4 20.155-8.4v33.028H30.583Z"/>
+                      <circle cx="5" cy="5" r="5" fill="#470012" transform="translate(75 309)"/>
+                      <g transform="translate(20 10)">
+                        <g fill="#fff" stroke="#191919">
+                          <path stroke="none" d="M30 284h60v40H30z"/>
+                          <path fill="none" d="M30.5 284.5h59v39h-59z"/>
+                        </g>
+                        <path fill="#470012" d="m30.583 299.747 24.909-12.875 13.848 7.153 20.2-7.153v33.385H30.583Z"/>
+                        <path fill="#7d002c" d="m30.583 305.254 24.909-15.128 13.848 8.4 20.2-8.4v33.031H30.583Z"/>
+                        <circle cx="5" cy="5" r="5" fill="#fff" transform="translate(75 309)"/>
+                      </g>
+                    </g>
+                  </svg>
+                {% elseif item.path == '/testimonials/' %}
+                  <svg class="w-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 50">
+                    <g fill="#7d002c" stroke="#1a1a1a">
+                      <path stroke="none" d="M0 0h50a10 10 0 0 1 10 10v20H10A10 10 0 0 1 0 20V0Z"/>
+                      <path fill="none" d="M.5.5H50a9.5 9.5 0 0 1 9.5 9.5v19.5H10A9.5 9.5 0 0 1 .5 20V.5Z"/>
+                    </g>
+                    <path fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2" d="M10 10h40m-40 5h40m-40 5h30"/>
+                    <g fill="#fff" stroke="#1a1a1a">
+                      <path stroke="none" d="M20 15h50a10 10 0 0 1 10 10v20H30a10 10 0 0 1-10-10V15Z"/>
+                      <path fill="none" d="M20.5 15.5H70a9.5 9.5 0 0 1 9.5 9.5v19.5H30a9.5 9.5 0 0 1-9.5-9.5V15.5Z"/>
+                    </g>
+                    <path fill="none" stroke="#7c002b" stroke-linecap="round" stroke-width="2" d="M28 25h40m-40 5h40m-40 5h30"/>
+                    <g fill="#7c002b" stroke="#1a1a1a" transform="translate(65 40)">
+                      <circle cx="5" cy="5" r="5" stroke="none"/>
+                      <circle cx="5" cy="5" r="4.5" fill="none"/>
+                    </g>
+                  </svg>
+                {% elseif item.path == '/services/' %}
+                  <svg class="w-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 50">
+                    <g fill="#fff" stroke="#1a1a1a">
+                      <path stroke="none" d="M0 0h70v45H0z"/>
+                      <path fill="none" d="M.5.5h69v44H.5z"/>
+                    </g>
+                    <g fill="#470012" stroke="#191919">
+                      <path stroke="none" d="M0 0h70v10H0z"/>
+                      <path fill="none" d="M.5.5h69v9H.5z"/>
+                    </g>
+                    <g fill="#fff" transform="translate(-19 -155)">
+                      <circle cx="1" cy="1" r="1" transform="translate(76 159)"/>
+                      <circle cx="1" cy="1" r="1" transform="translate(79 159)"/>
+                      <circle cx="1" cy="1" r="1" transform="translate(82 159)"/>
+                    </g>
+                    <path fill="none" stroke="#7c002b" stroke-linecap="round" stroke-width="2" d="M10 25.5h50m-50-5h50m-50 10h50m-50 5h40"/>
+                    <g fill="#fff" stroke="#191919" transform="translate(60 15)">
+                      <rect width="20" height="35" stroke="none" rx="3"/>
+                      <rect width="19" height="34" x=".5" y=".5" fill="none" rx="2.5"/>
+                    </g>
+                    <path fill="#191919" d="M67 15h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-1Z"/>
+                    <path fill="none" stroke="#7c002b" stroke-linecap="round" d="M64.5 30h11m-11-3h11m-11-3h11m-11 9h11m-11 3h11m-11 3h11m-11 3h6"/>
+                  </svg>
+                {% else %}
+                  <svg class="w-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 50">
+                    <g fill="#470012" stroke="#191919">
+                      <path stroke="none" d="M0 0h40v50H0z"/>
+                      <path fill="none" d="M.5.5h39v49H.5z"/>
+                    </g>
+                    <g fill="#7d002c" stroke="#191919">
+                      <path stroke="none" d="M10 0h70v50H10z"/>
+                      <path fill="none" d="M10.5.5h69v49h-69z"/>
+                    </g>
+                    <g fill="#191919" transform="translate(-18 -356)">
+                      <rect width="8" height="4" rx="2" transform="translate(24 364)"/>
+                      <rect width="8" height="4" rx="2" transform="translate(24 374)"/>
+                      <rect width="8" height="4" rx="2" transform="translate(24 384)"/>
+                      <rect width="8" height="4" rx="2" transform="translate(24 394)"/>
+                    </g>
+                    <path fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2" d="M20 15h49.641M20 25h50M20 35h40"/>
+                  </svg>
+                {% endif %}
+              </span>
+              <span class="transition-transform -translate-x-96 item-label group-hover:translate-x-0">{{ item.label }}</span></a>
+          </li>
+        {% endfor %}
       </ul>
     {% endif %}
   </nav>
