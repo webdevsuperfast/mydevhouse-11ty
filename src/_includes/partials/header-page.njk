@@ -14,7 +14,8 @@
       <ul class="list-none navigation">
         {% for item in navigation %}
           <li class="block navigation-item">
-            <a href="{{ item.path }}" class="block px-5 py-5 text-4xl font-light uppercase transition-all font-barlow-condensed navigation-link hover:bg-rose-900 hover:text-right">{{ item.label }}</a>
+            <a href="{{ item.path }}" class="block px-5 py-5 text-4xl font-light uppercase transition-transform transform font-barlow-condensed navigation-link hover:bg-rose-900 group">
+              <span class="block transition-transform item-label group-hover:translate-x-16">{{ item.label }}</span></a>
           {% endfor %}
       </ul>
     {% endif %}
