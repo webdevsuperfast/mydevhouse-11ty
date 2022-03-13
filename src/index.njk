@@ -2,16 +2,16 @@
 {% extends "layout.njk" %}
 
 {% block body %}
-  <section class="flex w-full items-center justify-center lg:h-screen py-20 lg:py-0 bg-fixed lazy bg-dark">
-    <div class="container px-4 sm:px-6 lg:px-8 grid grid-cols-none lg:grid-cols-10 gap-x-20 md:gap-y-20 lg:gap-y-0 items-center text-xl 2xl:text-3xl">
-      <div class="lg:col-span-4 cta order-2 lg:order-1">
+  <section class="flex items-center justify-center w-full py-20 bg-fixed lg:h-screen lg:py-0 lazy bg-dark">
+    <div class="container grid items-center grid-cols-none px-4 text-xl sm:px-6 lg:px-8 lg:grid-cols-10 gap-x-20 md:gap-y-20 lg:gap-y-0 2xl:text-3xl">
+      <div class="order-2 text-white lg:col-span-4 cta lg:order-1">
         <h1 class="font-barlow-condensed font-black uppercase text-2xl 2xl:text-4xl leading-none mb-4 lg:mb-8 2xl:mb-14 md:w-[340px]">Developing Solutions, Delivering Results.</h1>
-        <div class="content text-gray-300 mb-4 lg:mb-8 2xl:mb-16">
+        <div class="mb-4 text-gray-300 content lg:mb-8 2xl:mb-16">
           <p>We are a web development company located in Northern Philippines that helps SMEs grow by building clean and responsive websites, defining a strong brand identity and thoughtful brand strategies.</p>
         </div>
         {% include "partials/cta-button.njk" %}
       </div>
-      <div class="lg:col-span-6 order-1 mb-16 md:mb-0 lg:order-2 overflow-hidden">
+      <div class="order-1 mb-16 overflow-hidden lg:col-span-6 md:mb-0 lg:order-2">
         {% include "partials/slider.njk" %}
       </div>
     </div>
