@@ -1,16 +1,12 @@
 {% include 'partials/head.njk' %}
-  {% if page.url == '/' %}
-    {% include 'partials/header.njk' %}
-    {% include 'partials/navigation.njk' %}
-  {% else %}
-    {% include 'partials/header-page.njk' %}
-  {% endif %}
-  
-  <main class="site-content py-0">
-    {% block body %}
-      {{ content | safe }}
-    {% endblock %}
-  </main>
-  
-  {% include 'partials/footer.njk' %}
+{% include 'partials/header.njk' %}
+{% include 'partials/navigation.njk' %}
+
+<main class="py-0 site-content">
+  {% block body %}
+    {{ content | safe }}
+  {% endblock %}
+</main>
+
+{% include 'partials/footer.njk' %}
 {% include 'partials/foot.njk' %}
