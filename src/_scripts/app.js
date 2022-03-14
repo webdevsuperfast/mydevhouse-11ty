@@ -1,21 +1,14 @@
-// set initial color scheme
-let explicitelyPreferScheme = false
-if (window.localStorage) {
-  if (localStorage.getItem('theme') === 'dark') {
-    document.documentElement.classList.add('dark')
-    document.getElementById('toggle-dark-mode').checked = true
-    explicitelyPreferScheme = 'dark'
-  } else if (localStorage.getItem('theme') === 'light') {
-    document.documentElement.classList.remove('dark')
-    document.getElementById('toggle-dark-mode').checked = false
-    explicitelyPreferScheme = 'light'
-  }
-}
+// Save navigation on click
+// const activeNav = (window.activeNav = () => ({
+//   value: '/',
+//   clicked(e) {
+//     window.localStorage.setItem('active', e.target.dataset('label'))
+//     this.value = window.localStorage.getItem('active')
+//     // console.log(e.target.)
+//   },
+// }))
 
-if (
-  explicitelyPreferScheme !== 'light' &&
-  window.matchMedia('(prefers-color-scheme:dark)').matches
-) {
-  document.documentElement.classList.add('dark')
-  document.getElementById('toggle-dark-mode').checked = true
-}
+const activeNav = document.querySelectorAll(
+  'nav a[href^="/' + location.pathname.split('/')[1] + '"]'
+)
+activeNav[0].classList.add('active')
