@@ -1,0 +1,33 @@
+---
+pagination:
+  data: pages
+  size: 1
+  alias: test
+permalink: /{{ test.slug }}/
+---
+
+{% extends "layouts/default.njk" %}
+
+{%- block siteTitle %}{{ test.title }}
+{%- endblock %}
+
+{%- block metaDescription %}{{ test.metaDesc }}
+{%- endblock %}
+
+{%- block pageTitle %}{{ test.title }}
+{%- endblock %}
+
+{% block content %}
+  {% if test.slug === 'testimonials' %}
+    {% include 'partials/testimonials.njk' %}
+  {% endif %}
+
+  {% if test.slug === 'portfolio' %}
+    {% include 'partials/portfolio.njk' %}
+    {% if portfolio.portfolioItems %}{% endif %}
+  {% endif %}
+
+  {% if test.slug === 'about-us' %}
+    {% include 'partials/about-us.njk' %}
+  {% endif %}
+{% endblock %}
