@@ -31,7 +31,7 @@
   </head>
   <body class="bg-white" x-data="{ scrolled: false, navOpen: false }">
     {% include 'partials/header-page.njk' %}
-    <main class="pl-32 content">
+    <main class="pl-32 content pr-36">
       <article class="px-10 py-10 text-gray-900 page type-page entry portfolio xl:py-24 xl:px-24">
         <header class="mb-16 entry-header font-barlow-condensed">
           <h1 class="text-xl font-bold uppercase sm:text-2xl md:text-5xl section-title text-rose-900">
@@ -39,7 +39,7 @@
           </h1>
           <span class="block w-10 h-1 rounded bg-rose-900"></span>
         </header>
-        <div class="entry-content">
+        <div class="text-4xl text-gray-700 entry-content">
           {% block content %}
             {{ content | safe }}
           {% endblock %}
