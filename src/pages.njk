@@ -2,32 +2,79 @@
 pagination:
   data: pages
   size: 1
-  alias: test
-permalink: /{{ test.slug }}/
+  alias: article
+permalink: /{{ article.slug }}/
 ---
 
 {% extends "layouts/default.njk" %}
 
-{%- block siteTitle %}{{ test.title }}
+{%- block siteTitle %}{{ article.title }}
 {%- endblock %}
 
-{%- block metaDescription %}{{ test.metaDesc }}
+{%- block metaDescription %}{{ article.metaDesc }}
 {%- endblock %}
 
-{%- block pageTitle %}{{ test.title }}
+{%- block pageTitle %}{{ article.title }}
 {%- endblock %}
 
 {% block content %}
-  {% if test.slug === 'testimonials' %}
-    {% include 'partials/testimonials.njk' %}
+  {% if article.slug === 'testimonials' %}
+    {% if testimonials %}
+      <div class="grid grid-cols-none testimonials gap-14 gap-y-14 sm:grid-cols-2">
+        {% for testimonial in testimonials %}
+          <div class="testimonial w-100 space-between">
+            <blockquote class="block p-8 mb-6 text-xl text-gray-700 bg-gray-100 rounded-tl-none rounded-br-none grow rounded-2xl drop-shadow-xl shadow-gray-700">
+              {{ testimonial.content | safe }}
+            </blockquote>
+            <div class="flex flex-row-reverse items-center content-end text-right">
+              <img width="150" height="150" class="w-10 h-10 ml-4 rounded-full lazy" data-src="{% imageUrl testimonial.featuredImage.node.sourceUrl %}" alt="{{ testimonial.title }}"/>
+              <div class="text-sm">
+                <h3 class="font-bold text-gray-700 dark:text-gray-100">{{ testimonial.title }}</h3>
+                <p class="text-xs text-gray-400 dark:text-gray-200">{{ testimonial.testimonialInformation.company }}</p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
   {% endif %}
 
-  {% if test.slug === 'portfolio' %}
-    {% include 'partials/portfolio.njk' %}
-    {% if portfolio.portfolioItems %}{% endif %}
+  {% if article.slug === 'portfolio' %}
+    <section class="portfolio-items">
+      {% if portfolio.portfolioItems %}
+        <div class="grid grid-cols-none gap-10 portfolio-items collections sm:grid-cols-2 md:grid-cols-3">
+          {% for item in portfolio.portfolioItems %}
+            <figure class="text-lg mix portfolio w-100 group drop-shadow-xl shadow-gray-400">
+              <a data-glightbox="type: image" href="{% imageUrl item.featuredImage.node.featuredImage %}" class="relative block overflow-hidden rounded-br-none glightbox rounded-xl">
+                <img width="445" height="330" data-src="{% imageUrl item.featuredImage.node.thumbnail %}" alt="{{ item.title }}" class="portfolio-image lazy mb-0 h-[250px] w-full object-cover transition-transform group-hover:-rotate-3 group-hover:scale-125"/>
+                <figcaption class="absolute bottom-0 left-0 w-full px-5 py-4 transition-transform translate-y-full portfolio-info bg-rose-900 group-hover:translate-y-0">
+                  <h3 class="mb-0 text-white">{{ item.title }}</h3>
+                </figcaption>
+              </a>
+            </figure>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </section>
   {% endif %}
 
-  {% if test.slug === 'about-us' %}
+  {% if article.slug === 'about-us' %}
     {% include 'partials/about-us.njk' %}
+    {% if members %}
+      <section class="mt-16 team-members">
+        <div class="grid grid-cols-none gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {% for member in members %}
+            <figure class="team-member group w-100 drop-shadow-xl shadow-gray-700 team-member-{{ member.teamMemberId }} text-xl">
+              <a class="relative block overflow-hidden rounded-br-none glightbox rounded-xl">
+                <img width="245" height="245" data-src="{% imageUrl member.featuredImage.node.sourceUrl %}" alt="{{ member.title }}" class="portfolio-image lazy mb-0 h-[250px] w-full object-cover transition-transform group-hover:scale-125 group-hover:grayscale"/>
+                <figcaption class="absolute bottom-0 left-0 w-full px-5 py-4 transition-transform translate-y-full portfolio-info bg-rose-900 group-hover:translate-y-0">
+                  <h3 class="mb-0 text-white uppercase font-barlow-condensed">{{ member.title }}</h3>
+                </figcaption>
+              </a>
+            </figure>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
   {% endif %}
 {% endblock %}
