@@ -8,7 +8,7 @@ const getMembers = async () => {
           content(format: RAW)
           slug
           teamMemberId
-          title(format: RAW)
+          title
           featuredImage {
             node {
               sourceUrl

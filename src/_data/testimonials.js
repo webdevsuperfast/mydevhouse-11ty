@@ -5,7 +5,7 @@ const getTestimonials = async () => {
     query: `query {
       testimonials {
         nodes {
-          content(format: RAW)
+          content
           slug
           title
           testimonialInformation {
