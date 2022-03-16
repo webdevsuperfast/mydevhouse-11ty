@@ -20,9 +20,9 @@ permalink: /{{ article.slug }}/
 {% block content %}
   {% if article.slug === 'testimonials' %}
     {% if testimonials %}
-      <div class="grid grid-cols-none testimonials gap-14 gap-y-14 sm:grid-cols-2">
+      <div class="testimonials masonry sm:masonry-sm md:masonry-md">
         {% for testimonial in testimonials %}
-          <div class="testimonial w-100 space-between">
+          <div class="testimonial w-100 space-between break-inside mb-4">
             <blockquote class="block p-8 mb-6 text-xl text-gray-700 bg-gray-100 rounded-tl-none rounded-br-none grow rounded-2xl drop-shadow-xl shadow-gray-700">
               {{ testimonial.content | safe }}
             </blockquote>
@@ -42,7 +42,7 @@ permalink: /{{ article.slug }}/
   {% if article.slug === 'portfolio' %}
     <section class="portfolio-items">
       {% if portfolio.portfolioItems %}
-        <div class="grid grid-cols-none gap-10 portfolio-items collections sm:grid-cols-2 md:grid-cols-3">
+        <div class="grid grid-cols-none gap-10 portfolio-items collections sm:grid-cols-2 lg:grid-cols-3">
           {% for item in portfolio.portfolioItems %}
             <figure class="text-lg mix portfolio w-100 group drop-shadow-xl shadow-gray-400">
               <a data-glightbox="type: image" href="{% imageUrl item.featuredImage.node.featuredImage %}" class="relative block overflow-hidden rounded-tl-none rounded-br-none glightbox rounded-2xl">
@@ -59,14 +59,14 @@ permalink: /{{ article.slug }}/
   {% endif %}
 
   {% if article.slug === 'about-us' %}
-    <section class="mb-16 about-introduction">
+    <section class="mb-4 md:mb-8 lg:mb-16 about-introduction">
       <div class="introduction">
         <p>We are a team of developers in the Philippines. We have over 10 years of experience and we know a thing or two about developing websites and application software.</p>
       </div>
     </section>
     {% if members %}
       <section id="team-members" class="team-members">
-        <div class="grid grid-cols-none gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+        <div class="grid grid-cols-none gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
           {% for member in members %}
             <figure class="team-member group w-100 drop-shadow-xl shadow-gray-700 team-member-{{ member.teamMemberId }} text-xl">
               <a class="relative block overflow-hidden rounded-tl-none rounded-br-none glightbox rounded-2xl">
