@@ -5,7 +5,7 @@ const getMembers = async () => {
     query: `query {
       teamMembers(where: {orderby: {field: MENU_ORDER, order: ASC}}) {
         nodes {
-          content(format: RAW)
+          content(format: RENDERED)
           slug
           teamMemberId
           title
