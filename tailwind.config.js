@@ -1,10 +1,6 @@
 module.exports = {
-  mode: 'jit',
   content: [
-    './src/**/*.{js,md,njk,svg}',
-    './src/_includes/**/*.njk',
-    './src/_includes/partials/*.njk',
-    './src/_styles/**/*.{scss,pcss,css}',
+    './src/**/*.{js,md,njk,svg,scss,pcss,css}'
   ],
   darkMode: 'class',
   plugins: [
