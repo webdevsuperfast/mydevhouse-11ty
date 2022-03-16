@@ -45,7 +45,7 @@ permalink: /{{ article.slug }}/
         <div class="grid grid-cols-none gap-10 portfolio-items collections sm:grid-cols-2 md:grid-cols-3">
           {% for item in portfolio.portfolioItems %}
             <figure class="text-lg mix portfolio w-100 group drop-shadow-xl shadow-gray-400">
-              <a data-glightbox="type: image" href="{% imageUrl item.featuredImage.node.featuredImage %}" class="relative block overflow-hidden rounded-br-none glightbox rounded-xl">
+              <a data-glightbox="type: image" href="{% imageUrl item.featuredImage.node.featuredImage %}" class="relative block overflow-hidden rounded-tl-none rounded-br-none glightbox rounded-2xl">
                 <img width="445" height="330" data-src="{% imageUrl item.featuredImage.node.thumbnail %}" alt="{{ item.title }}" class="portfolio-image lazy mb-0 h-[250px] w-full object-cover transition-transform group-hover:-rotate-3 group-hover:scale-125"/>
                 <figcaption class="absolute bottom-0 left-0 w-full px-5 py-4 transition-transform translate-y-full portfolio-info bg-rose-900 group-hover:translate-y-0">
                   <h3 class="mb-0 text-white">{{ item.title }}</h3>
@@ -59,16 +59,20 @@ permalink: /{{ article.slug }}/
   {% endif %}
 
   {% if article.slug === 'about-us' %}
-    {% include 'partials/about-us.njk' %}
+    <section class="mb-16 about-introduction">
+      <div class="introduction">
+        <p>We are a team of developers in the Philippines. We have over 10 years of experience and we know a thing or two about developing websites and application software.</p>
+      </div>
+    </section>
     {% if members %}
-      <section class="mt-16 team-members">
-        <div class="grid grid-cols-none gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <section id="team-members" class="team-members">
+        <div class="grid grid-cols-none gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           {% for member in members %}
             <figure class="team-member group w-100 drop-shadow-xl shadow-gray-700 team-member-{{ member.teamMemberId }} text-xl">
-              <a class="relative block overflow-hidden rounded-br-none glightbox rounded-xl">
-                <img width="245" height="245" data-src="{% imageUrl member.featuredImage.node.sourceUrl %}" alt="{{ member.title }}" class="portfolio-image lazy mb-0 h-[250px] w-full object-cover transition-transform group-hover:scale-125 group-hover:grayscale"/>
+              <a class="relative block overflow-hidden rounded-tl-none rounded-br-none glightbox rounded-2xl">
+                <img width="245" height="245" data-src="{% imageUrl member.featuredImage.node.sourceUrl %}" alt="{{ member.title }}" class="portfolio-image lazy mb-0 h-[250px] lg:h-48 w-full object-cover transition-transform group-hover:scale-125 group-hover:grayscale"/>
                 <figcaption class="absolute bottom-0 left-0 w-full px-5 py-4 transition-transform translate-y-full portfolio-info bg-rose-900 group-hover:translate-y-0">
-                  <h3 class="mb-0 text-white uppercase font-barlow-condensed">{{ member.title }}</h3>
+                  <h3 class="mb-0 text-sm text-white uppercase font-barlow-condensed md:text-lg">{{ member.title }}</h3>
                 </figcaption>
               </a>
             </figure>
