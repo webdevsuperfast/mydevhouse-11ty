@@ -1,7 +1,6 @@
 module.exports = {
-  content: [
-    './src/**/*.{js,md,njk,svg,scss,pcss,css}'
-  ],
+  mode: 'jit',
+  content: ['./src/**/*.{js,md,njk,svg,scss,pcss,css}'],
   darkMode: 'class',
   plugins: [
     require('@tailwindcss/forms'),
