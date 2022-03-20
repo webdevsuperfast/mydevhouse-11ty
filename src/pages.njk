@@ -17,6 +17,20 @@ permalink: /{{ article.slug }}/
 {%- block pageTitle %}{{ article.title }}
 {%- endblock %}
 
+{% block pageMenu %}
+  {% if page.url === '/about-us/' %}
+    <nav>
+      <ul>
+        {% for item in about %}
+          <li class="inline-block">
+            <a class="block px-2 py-2 uppercase transition-colors hover:text-rose-900 hover:underline underline-offset-2 hover:decoration-rose-900" href="{{ item.url }}">{{ item.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  {% endif %}
+{% endblock %}
+
 {% block content %}
   {% if article.slug === 'testimonials' %}
     {% if testimonials %}
@@ -65,7 +79,7 @@ permalink: /{{ article.slug }}/
       </div>
     </section>
     {% if members %}
-      <section id="team-members" class="team-members">
+      <section id="our-team" class="team-members">
         <div class="grid grid-cols-none gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
           {% for member in members %}
             <figure class="team-member group w-100 team-member-{{ member.teamMemberId }} text-xl">
@@ -92,26 +106,6 @@ permalink: /{{ article.slug }}/
         </div>
       </section>
     {% endif %}
-  {% endif %}
-{% endblock %}
 
-{% block contentFooter %}
-  {% if article.slug === 'about-us' %}
-    <nav class="fixed transform rotate-90 -right-10 top-1/2">
-      <ul class="section-navigation">
-        <li class="inline-block">
-          <a class="block px-2 py-2" href="#team">Our Team</a>
-        </li>
-        <li class="inline-block">
-          <a class="block px-2 py-2" href="#process">Our Process</a>
-        </li>
-        <li class="inline-block">
-          <a class="block px-2 py-2" href="#services">Our Services</a>
-        </li>
-        <li class="inline-block">
-          <a class="block px-2 py-2" href="#testimonials">Testimonials</a>
-        </li>
-      </ul>
-    </nav>
   {% endif %}
 {% endblock %}
