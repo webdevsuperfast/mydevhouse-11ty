@@ -16,7 +16,7 @@ async function getPages() {
             readingTime
           }
           pageId
-          content(format: RAW)
+          content(format: RENDERED)
           slug
           title
         }
