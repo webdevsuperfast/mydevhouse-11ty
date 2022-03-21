@@ -34,9 +34,9 @@ permalink: /{{ article.slug }}/
 {% block content %}
   {% if article.slug === 'testimonials' %}
     {% if testimonials %}
-      <div class="testimonials masonry sm:masonry-sm md:masonry-md">
+      <div id="testimonials" class="testimonials">
         {% for testimonial in testimonials %}
-          <div class="mb-4 testimonial w-100 space-between break-inside">
+          <div class="testimonial">
             <blockquote class="block p-8 mb-6 text-xl text-gray-700 bg-gray-100 rounded-tl-none rounded-br-none grow rounded-2xl drop-shadow-xl shadow-gray-700">
               {{ testimonial.content | safe }}
             </blockquote>
@@ -52,7 +52,6 @@ permalink: /{{ article.slug }}/
       </div>
     {% endif %}
   {% endif %}
-
   {% if article.slug === 'portfolio' %}
     <section class="portfolio-items">
       {% if portfolio.portfolioItems %}
@@ -79,7 +78,7 @@ permalink: /{{ article.slug }}/
       </div>
     </section>
     {% if members %}
-      <section id="our-team" class="team-members">
+      <section id="our-team" class="mb-4 team-members md:mb-8 lg:mb-16">
         <div class="grid grid-cols-none gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
           {% for member in members %}
             <figure class="team-member group w-100 team-member-{{ member.teamMemberId }} text-xl">
@@ -106,6 +105,5 @@ permalink: /{{ article.slug }}/
         </div>
       </section>
     {% endif %}
-
   {% endif %}
 {% endblock %}
