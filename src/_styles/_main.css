@@ -1,4 +1,14 @@
+@import '../../node_modules/glightbox/dist/css/glightbox.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Custom Utilities Go Here. */
+[x-cloak] {
+  @apply hidden;
+}
+
 input:checked ~ .block {
   @apply bg-rose-900;
 }
@@ -7,17 +17,19 @@ input:checked ~ .dot {
   @apply translate-x-full bg-gray-100;
 }
 
-.swiper-slide {
-  @apply z-10 transform opacity-75 grayscale transition-transform duration-300;
+.featured-portfolio {
+  .swiper-slide {
+    @apply z-10 transform opacity-75 grayscale transition-transform duration-300;
 
-  &.swiper-slide-prev {
-    @apply translate-x-[80%] scale-75;
-  }
-  &.swiper-slide-next {
-    @apply -translate-x-[80%] scale-75;
-  }
-  &.swiper-slide-active {
-    @apply z-20 opacity-100 grayscale-0;
+    &.swiper-slide-prev {
+      @apply translate-x-[80%] scale-75;
+    }
+    &.swiper-slide-next {
+      @apply -translate-x-[80%] scale-75;
+    }
+    &.swiper-slide-active {
+      @apply z-20 opacity-100 grayscale-0;
+    }
   }
 }
 
