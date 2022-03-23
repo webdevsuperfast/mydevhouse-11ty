@@ -14,9 +14,4 @@ module.exports = [
     slug: 'our-services',
     url: '#our-services',
   },
-  {
-    title: 'Testimonials',
-    slug: 'testimonials',
-    url: '#testimonials',
-  },
 ]
