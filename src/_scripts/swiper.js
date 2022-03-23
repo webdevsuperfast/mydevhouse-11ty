@@ -36,8 +36,13 @@ for (let i = 0; i < slider.length; i++) {
     const swiper = new Swiper(slider[i], $params)
   } else {
     const swiper = new Swiper(slider[i], {
-      slidesPerView: 3,
+      slidesPerView: 2,
       spaceBetween: 30,
+      modules: [Navigation],
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
     })
   }
 }
