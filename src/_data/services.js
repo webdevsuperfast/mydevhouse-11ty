@@ -1,4 +1,3 @@
-const { data } = require('autoprefixer')
 const graphqlQuery = require('../_utils/graphql')
 
 const getServices = async () => {
@@ -9,6 +8,8 @@ const getServices = async () => {
           slug
           title
           id
+          content,
+          excerpt
         }
       }
     }`,
