@@ -107,13 +107,13 @@ permalink: /{{ article.slug }}/
     {% endif %}
     {% if process %}
       <section id="our-process" class="mb-4 our-process md:mb-8 lg:mb-16">
-        <div class="process-wrap group">
+        <div class="process-wrap group group-last:mb-0">
           {% for item in process.builder.section %}
-            <div class="flex mb-8 text-xl media group-last:mb-0">
-              <div class="mr-8 media-aside align-self-center">
+            <div class="grid grid-cols-none gap-8 mb-8 text-xl md:grid-cols-12 media">
+              <div class="media-image md:col-span-2">
                 <img width="100" height="100" data-src="{% imageUrl item.featured.image.mediaItemUrl %}" alt="{{ item.title }}" class="portfolio-image lazy w-[100px]"/>
               </div>
-              <div class="media-body">
+              <div class="media-body md:col-span-10">
                 <h3 class="mb-4 text-sm uppercase text-rose-900 font-barlow-condensed md:text-lg">{{ item.heading }}</h3>
                 <p class="text-sm">{{ item.content | safe }}</p>
               </div>
