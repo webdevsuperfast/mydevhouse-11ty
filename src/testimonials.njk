@@ -1,0 +1,22 @@
+{% extends "layouts/default.njk" %}
+
+{% block content %}
+  {% if testimonials %}
+    <section id="testimonials" class="testimonials masonry md:masonry-sm">
+      {% for testimonial in testimonials %}
+        <div class="mb-8 testimonial">
+          <blockquote class="block p-8 mb-6 text-xl text-gray-700 rounded-tl-none rounded-br-none bg-gray-50 grow rounded-2xl drop-shadow-xl shadow-gray-700">
+            {{ testimonial.content | safe }}
+          </blockquote>
+          <div class="flex flex-row-reverse items-center content-end text-right">
+            <img width="150" height="150" class="w-10 h-10 ml-4 rounded-full lazy" data-src="{% imageUrl testimonial.featuredImage.node.sourceUrl %}" alt="{{ testimonial.title }}"/>
+            <div class="text-sm">
+              <h3 class="font-bold text-gray-700 dark:text-gray-100">{{ testimonial.title }}</h3>
+              <p class="text-xs text-gray-400 dark:text-gray-200">{{ testimonial.testimonialInformation.company }}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </section>
+  {% endif %}
+{% endblock %}

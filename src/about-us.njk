@@ -1,0 +1,20 @@
+{% extends "layouts/default.njk" %}
+
+{% block pageMenu %}
+  {% if about %}
+    <nav>
+      <ul>
+        {% for item in about %}
+          <li class="inline-block">
+            <a class="block px-2 py-2 uppercase transition-colors hover:text-rose-900 hover:underline underline-offset-2 hover:decoration-rose-900" href="{{ item.url }}">{{ item.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% include "partials/about.njk" %}
+  {% include "partials/process.njk" %}
+{% endblock %}
