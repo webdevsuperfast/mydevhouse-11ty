@@ -1,0 +1,33 @@
+<section class="mb-4 md:mb-8 lg:mb-16 about-introduction">
+  <div class="introduction">
+    <p>We are a team of developers in the Philippines. We have over 10 years of experience and we know a thing or two about developing websites and application software.</p>
+  </div>
+</section>
+{% if members %}
+  <section id="our-team" class="mb-4 team-members md:mb-8 lg:mb-16">
+    <div class="grid grid-cols-none gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
+      {% for member in members %}
+        <figure class="team-member group w-100 team-member-{{ member.teamMemberId }} text-xl">
+          <a href="#member-{{ member.teamMemberId }}" class="relative block mb-4 overflow-hidden rounded-tl-none rounded-br-none drop-shadow-xl shadow-gray-700 glightbox rounded-2xl">
+            <img width="245" height="245" data-src="{% imageUrl member.featuredImage.node.sourceUrl %}" alt="{{ member.title }}" class="portfolio-image lazy mb-0 h-[250px] lg:h-48 w-full object-cover transition-transform group-hover:scale-125"/>
+          </a>
+          <figcaption class="member-information">
+            <h3 class="mb-0 text-sm uppercase text-rose-900 font-barlow-condensed md:text-lg">{{ member.title }}</h3>
+          </figcaption>
+          <section id="member-{{ member.teamMemberId }}" class="hidden">
+            <div class="grid grid-cols-none gap-4 md:grid-cols-4">
+              <div class="member-image md:col-span-1">
+                <div class="mb-4 wrap">
+                  <img width="245" height="245" data-src="{% imageUrl member.featuredImage.node.sourceUrl %}" alt="{{ member.title }}" class="portfolio-image lazy mb-0 h-[250px] lg:h-48 w-full object-cover"/>
+                </div>
+                <h3 class="member-name">{{ member.title }}</h3>
+                <p class="text-sm subtitle">{{ member.memberInformation.position }}</p>
+              </div>
+              <div class="member-information md:col-span-3">{{ member.content | safe }}</div>
+            </div>
+          </section>
+        </figure>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
