@@ -1,6 +1,20 @@
+const flatCache = require('flat-cache')
+const path = require('path')
 const graphqlQuery = require('../_utils/graphql')
 
+const CACHE_KEY = 'members'
+const CACHE_FOLDER = path.resolve('./.cache')
+const CACHE_FILE = 'members.json'
+
 const getMembers = async () => {
+  const cache = flatCache.load(CACHE_FILE, CACHE_FOLDER)
+  const cachedItems = cache.getKey(CACHE_KEY)
+
+  if (cachedItems) {
+    console.log(`Using cached ${CACHE_KEY}`)
+    return cachedItems
+  }
+
   const data = await graphqlQuery({
     query: `query {
       teamMembers(where: {orderby: {field: MENU_ORDER, order: ASC}}) {
@@ -38,7 +52,13 @@ const getMembers = async () => {
     }`,
   })
 
-  return data.teamMembers.nodes
+  const teamMembers = data.teamMembers.nodes
+  if (teamMembers.length) {
+    cache.setKey(CACHE_KEY, teamMembers)
+    cache.save(true)
+  }
+
+  return teamMembers
 }
 
 module.exports = getMembers

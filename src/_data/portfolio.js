@@ -1,6 +1,21 @@
 const graphqlQuery = require('../_utils/graphql')
 
+const flatCache = require('flat-cache')
+const path = require('path')
+
+const CACHE_KEY = 'portfolio'
+const CACHE_FOLDER = path.resolve('./.cache')
+const CACHE_FILE = 'portfolio.json'
+
 const getPortfolio = async () => {
+  const cache = flatCache.load(CACHE_FILE, CACHE_FOLDER)
+  const cachedItems = cache.getKey(CACHE_KEY)
+
+  if (cachedItems) {
+    console.log(`Using cached ${CACHE_KEY}`)
+    return cachedItems
+  }
+
   const data = await graphqlQuery({
     query: `query {
       featuredPortfolio: allPortfolio(first: 3) {
@@ -57,10 +72,18 @@ const getPortfolio = async () => {
     item.categories = categories.join(' ')
   }
 
-  return {
+  const portfolio = {
     portfolioItems: data.portfolioItems.nodes,
     featuredPortfolio: data.featuredPortfolio.nodes,
   }
+
+  if (portfolio.length) {
+    cache.setKey(CACHE_KEY, portfolio)
+    cache.setKey()
+    cache.save(true)
+  }
+
+  return portfolio
 }
 
 module.exports = getPortfolio
