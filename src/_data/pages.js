@@ -39,7 +39,6 @@ async function getPages() {
     }`,
   })
 
-  return data.pages.nodes
   const pages = data.pages.nodes
 
   if (pages.length) {

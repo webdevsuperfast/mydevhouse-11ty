@@ -36,7 +36,7 @@ const getSite = async () => {
     description: data.settings.generalSettingsDescription,
   }
 
-  if (siteData.length) {
+  if (siteData) {
     cache.setKey(CACHE_KEY, siteData)
     cache.save(true)
   }

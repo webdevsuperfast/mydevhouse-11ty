@@ -17,8 +17,7 @@ const getProcess = async () => {
   }
 
   const data = await graphqlQuery({
-    query: `
-    query {
+    query: `query {
       pageBy(pageId: 640) {
         id
         content
@@ -48,9 +47,8 @@ const getProcess = async () => {
 
   const pageBy = data.pageBy
 
-  if (pageBy.length) {
+  if (pageBy) {
     cache.setKey(CACHE_KEY, pageBy)
-    cache.setKey()
     cache.save(true)
   }
 

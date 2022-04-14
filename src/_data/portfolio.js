@@ -77,9 +77,8 @@ const getPortfolio = async () => {
     featuredPortfolio: data.featuredPortfolio.nodes,
   }
 
-  if (portfolio.length) {
+  if (portfolio) {
     cache.setKey(CACHE_KEY, portfolio)
-    cache.setKey()
     cache.save(true)
   }
 
