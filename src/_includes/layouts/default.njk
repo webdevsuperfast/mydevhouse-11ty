@@ -10,7 +10,7 @@
       <title>{{ site.title }} - {{ site.description }}</title>
     {% else %}
       <title>
-        {%- block siteTitle %}Default Title{%- endblock %}
+        {%- block siteTitle %}Default Title{%- endblock %} - {{ site.title }}
       </title>
     {% endif %}
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
